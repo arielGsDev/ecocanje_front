@@ -1,9 +1,6 @@
 import { ChangeDetectionStrategy, Component, DestroyRef, ElementRef, afterNextRender, computed, inject, viewChild } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { ToggleSwitch } from 'primeng/toggleswitch';
 import { EventsService } from '../../core/data/events.service';
-import { MotionService } from '../../core/motion/motion.service';
 import { Wordmark } from '../../shared/ui/wordmark/wordmark';
 
 interface NavLink {
@@ -13,12 +10,11 @@ interface NavLink {
 
 @Component({
   selector: 'app-site-header',
-  imports: [FormsModule, RouterLink, ToggleSwitch, Wordmark],
+  imports: [RouterLink, Wordmark],
   templateUrl: './site-header.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SiteHeader {
-  protected readonly motion = inject(MotionService);
   private readonly events = inject(EventsService);
   private readonly header = viewChild.required<ElementRef<HTMLElement>>('header');
 
