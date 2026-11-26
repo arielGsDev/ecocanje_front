@@ -1,0 +1,11 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ecocanje-front",
+  "compatibility_date": "2026-11-26",
+  "assets": {
+    // Output of `npm run build` (Angular application builder).
+    "directory": "./dist/ecocanje-front/browser",
+    // Deep links such as /eventos/1 must serve index.html so the Angular router can handle them.
+    "not_found_handling": "single-page-application"
+  }
+}
