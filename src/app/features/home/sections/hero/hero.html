@@ -4,9 +4,6 @@
       <h1 id="hero-title" [appReveal]="0" class="text-fluid-xl m-0">{{ hero.title }}</h1>
       <p [appReveal]="1" class="text-ink-muted text-lead m-0 max-w-[34rem]">{{ hero.lead }}</p>
       <div [appReveal]="2" class="flex flex-wrap items-center gap-3">
-        @if (participateFragment(); as fragment) {
-          <a pButton routerLink="/" [fragment]="fragment" class="btn-eco">Participar</a>
-        }
         <a pButton routerLink="/" fragment="como" [outlined]="true" class="btn-eco">Ver cómo funciona</a>
       </div>
     </div>

@@ -1,4 +1,4 @@
-<app-hero [participateFragment]="participateFragment()" />
+<app-hero />
 @if (event(); as event) {
   <app-event-overview [event]="event" />
   @if (event.story; as story) {
@@ -20,6 +20,6 @@
     <app-community [community]="community" />
   }
   @if (event.supportText; as text) {
-    <app-support [text]="text" [logos]="event.supportLogos ?? ''" />
+    <app-support [text]="text" />
   }
 }
