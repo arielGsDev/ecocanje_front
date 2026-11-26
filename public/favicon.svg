@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="112 87 180 180" role="img" aria-label="EcoCanje">
+  <rect x="112" y="87" width="180" height="180" rx="44" fill="#e3f3e8"/>
+  <g fill="none" stroke="#125230" stroke-width="10" stroke-linecap="round">
+    <path d="M200 250V150"/>
+    <path d="M168 250h64"/>
+  </g>
+  <path fill="#9bd64a" d="M200 196c-48 5-66-26-63-56 40-4 66 17 63 56z"/>
+  <path fill="#1a7340" d="M200 166c-2-44 26-68 66-64 3 37-24 68-66 64z"/>
+</svg>
