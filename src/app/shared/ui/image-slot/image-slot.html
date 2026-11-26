@@ -1,0 +1,11 @@
+<div
+  [class]="'ec-slot flex-1' + (src() ? ' has-photo' : '') + (tone() === 'deep' ? ' deep' : '') + (align() === 'top' ? ' justify-start pt-8' : '')"
+  [style.min-height]="minHeight() || null"
+>
+  @if (src()) {
+    <img [src]="src()" [alt]="label()" loading="lazy" decoding="async" />
+  } @else {
+    <app-icon name="camera" />
+    <span>{{ label() }}</span>
+  }
+</div>

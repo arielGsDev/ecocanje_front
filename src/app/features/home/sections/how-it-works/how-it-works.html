@@ -1,0 +1,36 @@
+<section id="como" class="scroll-mt-24 pt-12 md:pt-[var(--space-9)]" aria-labelledby="how-title">
+  <div class="page-x flex flex-col gap-8">
+    <div class="flex max-w-[40rem] flex-col gap-4">
+      <h2 id="how-title" class="text-fluid-lg m-0">{{ content.title }}</h2>
+      <p class="m-0">{{ content.text }}</p>
+      <p class="text-primary-deep m-0 flex items-center gap-2 font-semibold">
+        <app-icon name="leaf" [size]="20" />
+        <span>{{ content.motto }}</span>
+      </p>
+    </div>
+    <div class="ec-cycle">
+      <div class="stage">
+        <app-exchange-scene class="w-full" [step]="active()" />
+        <div class="dots" aria-hidden="true">
+          @for (step of steps; track step.title; let i = $index) {
+            <span [class.on]="i <= active()"></span>
+          }
+        </div>
+      </div>
+      <ol #list class="m-0 list-none p-0">
+        @for (step of steps; track step.title; let i = $index) {
+          <li [class.on]="i === active()">
+            <span class="n" aria-hidden="true">{{ i + 1 }}</span>
+            <h3>{{ step.title }}</h3>
+            <p>{{ step.text }}</p>
+          </li>
+        }
+      </ol>
+    </div>
+  </div>
+</section>
+<section class="py-12 md:py-[var(--space-8)]" aria-label="Preguntas frecuentes">
+  <div class="page-x">
+    <app-faq />
+  </div>
+</section>

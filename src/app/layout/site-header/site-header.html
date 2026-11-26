@@ -1,0 +1,23 @@
+<header #header class="bg-surface border-line sticky top-0 z-40 border-b">
+  <div class="page-x flex flex-wrap items-center justify-between gap-x-6 gap-y-1 py-2">
+    <app-wordmark />
+    <nav class="order-3 -mx-4 w-[calc(100%+2rem)] overflow-x-auto px-4 md:order-none md:mx-0 md:w-auto md:overflow-visible md:px-0" aria-label="Secciones de la página">
+      <ul class="m-0 flex list-none items-center gap-1 p-0">
+        @for (link of links(); track link.fragment) {
+          <li>
+            <a
+              routerLink="/"
+              [fragment]="link.fragment"
+              class="text-ink-muted hover:text-primary-deep hover:bg-primary-tint inline-flex min-h-11 items-center rounded-full px-4 text-[length:var(--button-size)] font-semibold whitespace-nowrap"
+              >{{ link.label }}</a
+            >
+          </li>
+        }
+      </ul>
+    </nav>
+    <div class="flex items-center gap-2">
+      <p-toggleswitch inputId="motion-switch" [ngModel]="!motion.still()" (ngModelChange)="motion.toggle()" />
+      <label for="motion-switch" class="text-ink-muted text-[length:var(--small-size)] font-semibold">Movimiento</label>
+    </div>
+  </div>
+</header>

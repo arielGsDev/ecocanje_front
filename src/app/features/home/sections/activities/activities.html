@@ -1,0 +1,67 @@
+<section id="actividades" class="scroll-mt-24 py-12 md:py-[var(--space-9)]" aria-labelledby="activities-title">
+  <div class="page-x flex flex-col gap-8">
+    <div class="flex max-w-[40rem] flex-col gap-4">
+      <h2 id="activities-title" class="text-fluid-lg m-0">Así vamos avanzando.</h2>
+      @if (event().activitiesIntro; as intro) {
+        <p class="m-0">{{ intro.text }}</p>
+        @if (intro.notice; as notice) {
+          <div class="bg-accent-soft flex items-start gap-3 rounded-lg p-5">
+            <span class="text-primary-deep mt-0.5"><app-icon name="camera" /></span>
+            <div class="flex flex-col items-start gap-2">
+              <p class="text-primary-deep m-0 font-semibold">{{ notice.title }}</p>
+              <a [href]="notice.url" target="_blank" rel="noopener" class="text-primary hover:text-primary-hover inline-flex min-h-11 items-center gap-2 font-semibold underline underline-offset-4">
+                {{ notice.linkLabel }}
+                <app-icon name="external" [size]="18" />
+              </a>
+            </div>
+          </div>
+        }
+      }
+    </div>
+    <ul class="m-0 grid list-none gap-6 p-0 md:grid-cols-3">
+      @for (activity of event().activities; track activity.id; let i = $index) {
+        <li [appReveal]="i" class="bg-surface border-line shadow-eco-card flex flex-col overflow-hidden rounded-lg border">
+          @if (showPhoto(activity) && activity.photo; as photo) {
+            <app-image-slot [label]="photo.alt" [src]="photo.src ?? ''" minHeight="11.25rem" />
+          }
+          <div class="flex flex-1 flex-col gap-3 p-5">
+            <div class="flex flex-wrap items-center gap-2">
+              @if (activity.chip) {
+                <span class="bg-primary-tint text-primary-deep rounded-full px-3 py-1 text-[length:var(--small-size)] font-semibold">{{ activity.chip }}</span>
+              }
+              <app-status-badge [status]="activity.status" />
+            </div>
+            <h3 class="text-heading m-0">{{ activity.title }}</h3>
+            <p class="m-0">{{ activity.text }}</p>
+            @if (activity.date || activity.time || activity.place) {
+              <ul class="border-line text-ink-muted m-0 flex list-none flex-col gap-1.5 border-t p-0 pt-3 text-[length:var(--small-size)]">
+                @if (activity.date) {
+                  <li class="flex items-start gap-2"><app-icon name="calendar" [size]="18" /><span>{{ activity.date }}</span></li>
+                }
+                @if (activity.time) {
+                  <li class="flex items-start gap-2"><app-icon name="clock" [size]="18" /><span>{{ activity.time }}</span></li>
+                }
+                @if (activity.place) {
+                  <li class="flex items-start gap-2"><app-icon name="pin" [size]="18" /><span>{{ activity.place }}</span></li>
+                }
+              </ul>
+            }
+            <div class="mt-auto pt-2">
+              @if (activity.signupOpen) {
+                <a pButton [routerLink]="['/eventos', event().id, 'inscripcion']" class="btn-eco">Inscribirme</a>
+              } @else {
+                <button pButton type="button" disabled class="btn-eco">Inscripción aún no disponible</button>
+              }
+            </div>
+          </div>
+        </li>
+      }
+    </ul>
+    @if (event().sessionsNotice; as notice) {
+      <div class="border-line bg-surface flex flex-wrap items-center gap-3 rounded-md border p-5">
+        <app-status-badge [status]="notice.status" />
+        <p class="m-0 min-w-0 flex-1">{{ notice.text }}</p>
+      </div>
+    }
+  </div>
+</section>

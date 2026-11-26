@@ -1,0 +1,51 @@
+<section id="proyecto" class="scroll-mt-24 py-12 md:py-[var(--space-9)]" aria-labelledby="overview-title">
+  <div class="page-x grid items-center gap-8 md:grid-cols-[1.05fr_1fr] md:gap-12">
+    <div class="flex flex-col gap-4">
+      <div class="flex flex-wrap items-center gap-3">
+        <app-status-badge [status]="event().status" />
+      </div>
+      <p class="text-ink-muted m-0 flex items-center gap-2 text-[length:var(--small-size)] font-semibold">
+        <app-icon name="pin" [size]="18" />
+        <span>{{ event().place }}</span>
+      </p>
+      <h2 id="overview-title" class="text-fluid-lg m-0">{{ event().headline }}</h2>
+      <p class="text-ink-muted text-lead m-0">{{ event().summary }}</p>
+      <div class="flex flex-wrap items-center gap-3">
+        @if (event().path) {
+          <a pButton routerLink="/" fragment="camino" [outlined]="true" class="btn-eco">Conoce nuestro camino</a>
+        }
+        @if (event().activities.length) {
+          <a pButton routerLink="/" fragment="actividades" [outlined]="true" class="btn-eco">Ver actividades</a>
+        }
+      </div>
+      @if (event().highlights; as highlights) {
+        <ul class="m-0 grid list-none grid-cols-1 gap-3 p-0 sm:grid-cols-3">
+          @for (item of highlights; track item.value; let i = $index) {
+            <li [appReveal]="i" class="border-line rounded-md border p-4" [class]="i === 0 ? 'bg-accent-soft' : 'bg-surface'">
+              <p class="text-primary-deep text-heading m-0">{{ item.value }}</p>
+              <p class="text-ink-muted m-0 text-[length:var(--small-size)]">{{ item.label }}</p>
+            </li>
+          }
+        </ul>
+      }
+    </div>
+    <div class="relative flex flex-col">
+      <app-image-slot class="min-h-[25rem] md:min-h-[32rem]" [label]="event().photo?.alt ?? ''" [src]="event().photo?.src ?? ''" minHeight="" align="top" />
+      @if (floats().length) {
+        <ul class="absolute bottom-4 left-4 m-0 grid list-none gap-3 p-0" aria-label="Primeras etapas">
+          @for (stage of floats(); track stage.title; let i = $index) {
+            <li [appReveal]="i + 1" class="bg-surface/95 shadow-eco-float flex w-[16.875rem] max-w-full items-center gap-3 rounded-md p-2.5 pr-4 backdrop-blur-sm" [class.ml-10]="i === 1">
+              <span [class]="stage.tone + ' text-primary-deep grid size-11 shrink-0 place-items-center rounded-sm'">
+                <app-icon [name]="stage.icon ?? 'leaf'" />
+              </span>
+              <span class="flex flex-col items-start gap-1">
+                <span class="text-[length:var(--small-size)] font-semibold">{{ stage.title }}</span>
+                <app-status-badge [status]="stage.status" />
+              </span>
+            </li>
+          }
+        </ul>
+      }
+    </div>
+  </div>
+</section>

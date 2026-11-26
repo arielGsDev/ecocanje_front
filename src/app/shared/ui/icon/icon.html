@@ -1,0 +1,14 @@
+<svg
+  [style.width.rem]="size() / 16"
+  [style.height.rem]="size() / 16"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  [attr.stroke-width]="strokeWidth()"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  [attr.role]="label() ? 'img' : null"
+  [attr.aria-label]="label() || null"
+  [attr.aria-hidden]="label() ? null : 'true'"
+  [innerHTML]="markup()"
+></svg>

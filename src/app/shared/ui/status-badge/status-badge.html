@@ -1,0 +1,8 @@
+<span [class]="'ec-status ec-status-' + status()">
+  @if (status() === 'done') {
+    <app-icon name="check" [size]="14" [strokeWidth]="2.4" />
+  } @else {
+    <span class="dot"></span>
+  }
+  {{ text() }}
+</span>

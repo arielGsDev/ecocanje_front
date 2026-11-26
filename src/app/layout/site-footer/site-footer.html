@@ -1,0 +1,39 @@
+<footer class="bg-primary-deeper text-on-primary-muted on-dark py-10">
+  <div class="page-x">
+    <div class="grid gap-8 md:grid-cols-[1.2fr_repeat(3,minmax(0,1fr))]">
+      <div class="flex flex-col gap-3">
+        <app-wordmark [onDark]="true" />
+        <p class="m-0 text-[length:var(--small-size)]">{{ footer.tagline }}</p>
+      </div>
+      @for (group of footer.groups; track group.title) {
+        <div>
+          <h2 class="text-on-primary mb-3 text-[length:var(--small-size)] font-semibold">{{ group.title }}</h2>
+          <ul class="m-0 flex list-none flex-col gap-2 p-0 text-[length:var(--small-size)]">
+            @for (link of group.links; track link.label) {
+              <li>
+                @if (link.url) {
+                  <a
+                    [href]="link.url"
+                    target="_blank"
+                    rel="noopener"
+                    class="text-on-primary-muted hover:text-on-primary inline-flex min-h-11 items-center gap-2 underline-offset-4 hover:underline"
+                  >
+                    @if (link.icon) {
+                      <app-icon [name]="link.icon" [size]="18" />
+                    }
+                    <span>{{ link.label }}</span>
+                  </a>
+                } @else {
+                  <span class="inline-flex min-h-11 items-center">{{ link.label }}</span>
+                }
+              </li>
+            }
+          </ul>
+        </div>
+      }
+    </div>
+    <p class="border-on-primary-muted/30 mt-8 mb-0 border-t pt-6 text-[length:var(--small-size)]">
+      © {{ year }} EcoCanje. {{ footer.signature }}
+    </p>
+  </div>
+</footer>

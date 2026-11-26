@@ -1,0 +1,116 @@
+/* Brand pieces ported from the design system bundle (illustrations, status chip, wordmark, image slot). */
+.ec-icon { display: inline-block; flex: none; vertical-align: middle; }
+.ec-status { display: inline-flex; align-items: center; gap: var(--space-2); height: 1.75rem; padding: 0 0.75rem 0 0.625rem; border-radius: var(--radius-pill); font-size: 0.8125rem; line-height: 1rem; font-weight: 600; white-space: nowrap; }
+.ec-status .dot { width: 0.5rem; height: 0.5rem; border-radius: 50%; flex: none; }
+.ec-status-live { background: var(--accent-soft); color: var(--primary-deep); }
+.ec-status-live .dot { background: var(--accent); box-shadow: 0 0 0 0 var(--accent); animation: ec-pulse 1.6s ease-out 3; }
+.ec-status-soon { background: var(--highlight-soft); color: var(--highlight-ink); }
+.ec-status-soon .dot { background: var(--highlight); }
+.ec-status-prep { background: var(--primary-tint); color: var(--primary-deep); }
+.ec-status-prep .dot { background: var(--primary); }
+.ec-status-done { background: var(--primary-deep); color: var(--on-primary); }
+.ec-status-ongoing { background: var(--surface-muted); color: var(--ink-muted); }
+.ec-status-ongoing .dot { background: var(--neutral-dot); }
+@keyframes ec-pulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 75%, transparent); } 80%,100% { box-shadow: 0 0 0 7px color-mix(in srgb, var(--accent) 0%, transparent); } }
+@media (prefers-reduced-motion: reduce) { .ec-status-live .dot { animation: none; } }
+.ec-wordmark { display: inline-flex; flex-direction: column; line-height: 1; color: var(--primary-deep); text-decoration: none; }
+.ec-wordmark b { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.025rem; }
+.ec-wordmark b i { font-style: normal; color: var(--primary); }
+.ec-wordmark.on-dark { color: var(--on-primary); }
+.ec-wordmark.on-dark b i { color: var(--accent); }
+.ec-slot { position: relative; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: var(--space-2); background: var(--surface-muted); border-radius: var(--radius-lg); color: var(--ink-muted); text-align: center; overflow: hidden; font-size: 0.8125rem; line-height: 1.125rem; font-weight: 600; padding: var(--space-4); box-sizing: border-box; background-image: repeating-linear-gradient(135deg, color-mix(in srgb, var(--primary-deep) 5%, transparent) 0 0.75rem, transparent 0.75rem 1.5rem); }
+.ec-slot::after { content: ""; position: absolute; inset: 0.625rem; border: 1.5px dashed color-mix(in srgb, var(--primary-deep) 24%, transparent); border-radius: calc(var(--radius-lg) - 0.5rem); pointer-events: none; }
+.ec-slot .ec-icon { color: var(--primary); opacity: .7; }
+.ec-slot.deep { background-color: var(--slot-deep); color: var(--on-primary); background-image: repeating-linear-gradient(135deg, color-mix(in srgb, var(--on-primary) 6%, transparent) 0 0.75rem, transparent 0.75rem 1.5rem); }
+.ec-slot.deep::after { border-color: color-mix(in srgb, var(--on-primary) 35%, transparent); }
+.ec-slot.deep .ec-icon { color: var(--accent); opacity: 1; }
+.ec-slot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ec-plant { width: 5rem; height: 6rem; transform-origin: bottom; transform: scale(var(--g, 1)); transition: transform var(--motion-scene) var(--ease-out); }
+.ec-plant .sprout, .ec-loop .sprout, .ec-scene .sprout { fill: none; stroke: var(--primary-deep); stroke-width: 10; stroke-linecap: round; }
+.ec-plant .low, .ec-loop .low, .ec-scene .low { fill: var(--accent); }
+.ec-plant .high, .ec-loop .high, .ec-scene .high { fill: var(--primary); }
+.ec-plant .sprout, .ec-loop .sprout { transform-box: fill-box; transform-origin: bottom center; }
+.ec-plant .leaf, .ec-loop .leaf, .ec-loop .ring, .ec-loop .chip { transform-box: fill-box; transform-origin: center; }
+.ec-plant.grow .sprout { animation: ec-grow .9s var(--ease-out) backwards; }
+.ec-plant.grow .leaf { animation: ec-leaf .6s var(--spring) .7s backwards; }
+.ec-plant.grow .high { animation-delay: .9s; }
+@keyframes ec-grow { from { transform: scaleY(0); } }
+@keyframes ec-leaf { from { opacity: 0; transform: scale(0); } }
+.ec-material { width: 3rem; height: 3.25rem; flex: none; }
+.ec-m { stroke: var(--primary-deep); stroke-width: 4; stroke-linejoin: round; }
+.ec-m .m-pet { fill: var(--on-primary-muted); } .ec-m .m-white { fill: var(--surface); } .ec-m .m-can { fill: var(--highlight); }
+.ec-m .m-card { fill: var(--material-carton); } .ec-m .m-card-l { fill: var(--material-carton-light); } .ec-m .m-none { fill: none; }
+.ec-m .m-lid { fill: var(--primary-deep); } .ec-m .m-glass { fill: var(--primary-tint); }
+.ec-loop { width: 100%; max-width: 28rem; overflow: visible; }
+.ec-loop .disc { fill: var(--surface); }
+.ec-loop .ring { fill: none; stroke: var(--primary); stroke-width: 10; stroke-linecap: round; stroke-linejoin: round; }
+.ec-loop .chip.a circle { fill: var(--primary-tint); } .ec-loop .chip.b circle { fill: var(--highlight-soft); } .ec-loop .chip.c circle { fill: var(--accent-soft); }
+.ec-loop.play .ring { animation: ec-ring 1.5s var(--ease-out) .25s backwards; }
+.ec-loop.play .chip { animation: ec-chip .8s var(--ease-out) backwards; animation-delay: calc(var(--i) * .18s); }
+.ec-loop.play .sprout { animation: ec-grow .9s var(--ease-out) 1.1s backwards; }
+.ec-loop.play .leaf { animation: ec-leaf .5s var(--spring) 1.7s backwards; }
+.ec-loop.play .high { animation-delay: 1.82s; }
+@keyframes ec-ring { from { opacity: 0; transform: rotate(-150deg) scale(.8); } }
+@keyframes ec-chip { from { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(.6); } }
+
+/* Exchange scene (ported from the design system) */
+.ec-scene { display: block; width: 100%; background: var(--surface-soft); border-radius: var(--radius-lg); }
+.ec-scene .layer, .ec-scene .mv { transition: transform var(--motion-scene) var(--ease-out), opacity var(--motion-slow); }
+.ec-scene .layer { opacity: 0; }
+.ec-scene .bins path { stroke: var(--primary); stroke-width: 6; stroke-linejoin: round; }
+.ec-scene .b1 { fill: var(--primary-tint); } .ec-scene .b2 { fill: var(--highlight-soft); } .ec-scene .b3 { fill: var(--accent-soft); }
+.ec-scene .roof { fill: var(--primary); } .ec-scene .post { stroke: var(--primary-deep); stroke-width: 8; stroke-linecap: round; } .ec-scene .table { fill: var(--surface-muted); }
+.ec-scene .tray, .ec-scene .pin { fill: var(--primary-deep); } .ec-scene .dial { fill: var(--surface); stroke: var(--primary); stroke-width: 8; }
+.ec-scene .arc { fill: none; stroke: var(--line); stroke-width: 8; stroke-linecap: round; } .ec-scene .needle { stroke: var(--primary-deep); stroke-width: 7; stroke-linecap: round; transform-origin: 200px 120px; transform: rotate(-75deg); transition: transform 1.1s var(--ease-out) .25s; }
+.ec-scene .halo { fill: var(--accent-soft); } .ec-scene .pot { fill: var(--highlight); }
+.ec-scene .gift { transform-origin: 200px 250px; transform: scale(.1); transition: transform .9s var(--ease-out) .3s; }
+.ec-scene .m1 { transform: translate(90px, 150px); } .ec-scene .m2 { transform: translate(200px, 150px); transition-delay: 60ms; } .ec-scene .m3 { transform: translate(310px, 150px); transition-delay: 120ms; }
+.ec-scene .point { transform: translateY(-24px); }
+.ec-scene[data-step="0"] .bins, .ec-scene[data-step="1"] .point, .ec-scene[data-step="2"] .weigh, .ec-scene[data-step="3"] .reward { opacity: 1; }
+.ec-scene[data-step="1"] .point { transform: none; }
+.ec-scene[data-step="1"] .m1 { transform: translate(165px, 205px) rotate(-14deg); } .ec-scene[data-step="1"] .m2 { transform: translate(205px, 215px); } .ec-scene[data-step="1"] .m3 { transform: translate(245px, 208px) rotate(12deg); }
+.ec-scene[data-step="2"] .m1 { transform: translate(158px, 214px); } .ec-scene[data-step="2"] .m2 { transform: translate(200px, 218px); } .ec-scene[data-step="2"] .m3 { transform: translate(244px, 216px); }
+.ec-scene[data-step="2"] .needle { transform: rotate(42deg); }
+.ec-scene[data-step="3"] .mv { transform: translate(200px, 262px) scale(.2); opacity: 0; }
+.ec-scene[data-step="3"] .gift { transform: none; }
+
+/* Exchange cycle: sticky scene beside the steps. The header height is published as --header-h. */
+.ec-cycle { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-7); }
+.ec-cycle .stage { position: sticky; top: var(--header-h, 4.5rem); align-self: start; height: calc(100svh - var(--header-h, 4.5rem)); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-4); }
+.ec-cycle .stage .ec-scene { max-height: 70%; }
+.ec-cycle .dots { display: flex; gap: var(--space-2); width: min(100%, 16rem); }
+.ec-cycle .dots span { flex: 1; height: 0.375rem; border-radius: var(--radius-pill); background: var(--surface-muted); transition: background var(--motion-slow); }
+.ec-cycle .dots span.on { background: var(--primary); }
+.ec-cycle li { min-height: 70svh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: var(--space-3); opacity: 0.35; transition: opacity var(--motion-slow); }
+.ec-cycle li.on { opacity: 1; }
+.ec-cycle li h3 { margin: 0; font-size: var(--heading-size); line-height: var(--heading-line); color: var(--primary-deep); }
+.ec-cycle li p { margin: 0; max-width: 32rem; }
+.ec-cycle .n { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: 50%; background: var(--primary-tint); color: var(--primary-deep); font-weight: 700; transition: background var(--motion-base), transform var(--motion-slow) var(--ease-out); }
+.ec-cycle li.on .n { background: var(--primary); color: var(--on-primary); transform: scale(1.12); }
+@media (max-width: 47.99rem) {
+  .ec-cycle { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .ec-cycle .stage { z-index: 2; height: 40svh; background: var(--surface); padding-block: var(--space-3); box-sizing: border-box; }
+  .ec-cycle .stage .ec-scene { flex: 1; min-height: 0; max-height: none; }
+  .ec-cycle li { min-height: 48svh; }
+}
+@media (prefers-reduced-motion: reduce) { .ec-cycle li { opacity: 1; } }
+.ec-still .ec-cycle li { opacity: 1; }
+
+/* Path timeline: vertical on narrow screens, horizontal on wide ones. Nodes and segments fill as the reader reaches each stage. */
+.ec-tl-node { position: absolute; top: 0; left: 0; display: grid; place-items: center; width: 1.5rem; height: 1.5rem; border-radius: 50%; border: 2px solid var(--control-border); background: var(--surface); color: var(--on-primary); transition: background var(--motion-base), border-color var(--motion-base), transform var(--motion-slow) var(--spring); }
+.ec-tl-node.on { background: var(--primary); border-color: var(--primary); transform: scale(1.1); }
+.ec-tl-seg { position: absolute; left: 0.6875rem; top: 1.5rem; bottom: calc(-1 * var(--space-5)); width: 0.125rem; background: var(--line); overflow: hidden; }
+.ec-tl-seg::after { content: ""; position: absolute; inset: 0; background: var(--primary); transform: scaleY(0); transform-origin: top; transition: transform var(--motion-slow) var(--ease-out); }
+.ec-tl-seg.on::after { transform: none; }
+@media (min-width: 64rem) {
+  .ec-tl-node { left: 1.25rem; }
+  .ec-tl-seg { left: 2.75rem; top: 0.6875rem; bottom: auto; width: calc(100% + var(--space-5) - 1.5rem); height: 0.125rem; }
+  .ec-tl-seg::after { transform: scaleX(0); transform-origin: left; }
+  .ec-tl-seg.on::after { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) { .ec-tl-node, .ec-tl-seg::after { transition: none; } }
+.ec-still .ec-tl-node, .ec-still .ec-tl-seg::after { transition: none; }
+
+/* A real photo replaces the placeholder pattern and its dashed frame. */
+.ec-slot.has-photo { background-image: none; padding: 0; }
+.ec-slot.has-photo::after { display: none; }

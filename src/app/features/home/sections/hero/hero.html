@@ -1,0 +1,17 @@
+<section class="bg-surface-soft py-12 md:py-[var(--space-8)]" aria-labelledby="hero-title">
+  <div class="page-x grid items-center gap-8 md:grid-cols-[1.15fr_1fr] md:gap-12">
+    <div class="flex flex-col gap-5">
+      <h1 id="hero-title" [appReveal]="0" class="text-fluid-xl m-0">{{ hero.title }}</h1>
+      <p [appReveal]="1" class="text-ink-muted text-lead m-0 max-w-[34rem]">{{ hero.lead }}</p>
+      <div [appReveal]="2" class="flex flex-wrap items-center gap-3">
+        @if (participateFragment(); as fragment) {
+          <a pButton routerLink="/" [fragment]="fragment" class="btn-eco">Participar</a>
+        }
+        <a pButton routerLink="/" fragment="como" [outlined]="true" class="btn-eco">Ver cómo funciona</a>
+      </div>
+    </div>
+    <div class="mx-auto w-full max-w-[28.75rem]">
+      <app-brand-loop />
+    </div>
+  </div>
+</section>

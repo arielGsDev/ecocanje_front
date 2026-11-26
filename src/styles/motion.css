@@ -1,0 +1,29 @@
+/* Movimiento de marca. Solo transform y opacity. Con movimiento apagado, todo aparece en su estado final. */
+@keyframes ec-rise {
+  from { opacity: 0; transform: translateY(0.75rem); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes ec-sink {
+  from { opacity: 1; transform: none; }
+  to { opacity: 0; transform: translateY(0.5rem); }
+}
+
+.ec-reveal.is-armed { opacity: 0; transform: translateY(0.75rem); }
+.ec-reveal.is-seen {
+  animation: ec-rise var(--motion-slow) var(--ease-out) both;
+}
+
+/* Dirección de la transición entre pantallas (View Transitions) */
+::view-transition-old(root) { animation: ec-sink var(--motion-base) var(--ease-out) both; }
+::view-transition-new(root) { animation: ec-rise var(--motion-slow) var(--ease-out) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  .ec-reveal.is-armed { opacity: 1; transform: none; }
+}
+.ec-still *, .ec-still *::before, .ec-still *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+.ec-still .ec-reveal.is-armed { opacity: 1; transform: none; }

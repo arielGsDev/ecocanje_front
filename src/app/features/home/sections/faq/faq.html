@@ -1,0 +1,13 @@
+<div class="flex max-w-[45rem] flex-col gap-3">
+  <h2 class="text-title m-0">Preguntas frecuentes</h2>
+  <p-accordion [multiple]="false">
+    @for (item of items; track item.question; let i = $index) {
+      <p-accordion-panel [value]="i">
+        <p-accordion-header>{{ item.question }}</p-accordion-header>
+        <p-accordion-content>
+          <p class="m-0">{{ item.answer }}</p>
+        </p-accordion-content>
+      </p-accordion-panel>
+    }
+  </p-accordion>
+</div>

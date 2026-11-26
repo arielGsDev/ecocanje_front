@@ -1,0 +1,21 @@
+/** Own line icons (24px grid, stroke 1.75, currentColor). Static, trusted markup. */
+export const ICON_PATHS: Record<string, string> = {
+  drop: '<path d="M12 3c3.5 4.2 6 7.6 6 10.5a6 6 0 0 1-12 0C6 10.6 8.5 7.2 12 3z"/><path d="M9.5 14.5a2.5 2.5 0 0 0 2.5 2.5"/>',
+  leaf: '<path d="M5 19c0-8 5-14 14-14 0 9-6 14-14 14z"/><path d="M5 19l8-8"/>',
+  plant: '<path d="M12 21v-9"/><path d="M12 12c0-4 3-6.5 7-6.5 0 4-3 6.5-7 6.5z"/><path d="M12 14.5c0-3-2.5-5.5-6.5-5.5 0 3 2.5 5.5 6.5 5.5z"/><path d="M8 21h8"/>',
+  recycle: '<path d="M20 12a8 8 0 0 1-13.6 5.7"/><path d="M4 12a8 8 0 0 1 13.6-5.7"/><path d="M17.8 2.8v3.9h-3.9"/><path d="M6.2 21.2v-3.9h3.9"/>',
+  sort: '<path d="M4 7h16"/><path d="M9 7V4h6v3"/><path d="M6 7l1 13h10l1-13"/><path d="M10 11v5"/><path d="M14 11v5"/>',
+  community: '<circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M15.8 14.1c2.9.4 5.2 2.8 5.2 5.9"/>',
+  scale: '<path d="M12 4v16"/><path d="M7 20h10"/><path d="M4 8h16"/><path d="M7 8l-3 6a3 3 0 0 0 6 0z"/><path d="M17 8l-3 6a3 3 0 0 0 6 0z"/>',
+  gift: '<rect x="4" y="10" width="16" height="10" rx="1.5"/><path d="M3 7h18v3H3z"/><path d="M12 7v13"/><path d="M12 7c-1.5-3-5-3.2-5-1.2S10 7 12 7z"/><path d="M12 7c1.5-3 5-3.2 5-1.2S14 7 12 7z"/>',
+  calendar: '<rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16"/><path d="M8 3v4"/><path d="M16 3v4"/>',
+  clock: '<circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/>',
+  pin: '<path d="M12 21s-6-5.5-6-11a6 6 0 0 1 12 0c0 5.5-6 11-6 11z"/><circle cx="12" cy="10" r="2"/>',
+  arrow: '<path d="M5 12h14"/><path d="M13 6l6 6-6 6"/>',
+  play: '<circle cx="12" cy="12" r="9"/><path d="M10 8.5l5 3.5-5 3.5z"/>',
+  check: '<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+  camera: '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7l1.5-3h5L16 7"/><circle cx="12" cy="13.5" r="3.5"/>',
+  message: '<path d="M4 5h16v11H9l-5 4z"/>',
+  mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>',
+  external: '<path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>',
+}

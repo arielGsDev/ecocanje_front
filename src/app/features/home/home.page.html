@@ -1,0 +1,25 @@
+<app-hero [participateFragment]="participateFragment()" />
+@if (event(); as event) {
+  <app-event-overview [event]="event" />
+  @if (event.story; as story) {
+    <app-story [story]="story" />
+  }
+  @if (event.path; as path) {
+    <app-path [path]="path" />
+  }
+  @if (event.activities.length) {
+    <app-activities [event]="event" />
+  }
+}
+<app-how-it-works />
+@if (event(); as event) {
+  @if (event.team; as team) {
+    <app-team [team]="team" />
+  }
+  @if (event.community; as community) {
+    <app-community [community]="community" />
+  }
+  @if (event.supportText; as text) {
+    <app-support [text]="text" [logos]="event.supportLogos ?? ''" />
+  }
+}

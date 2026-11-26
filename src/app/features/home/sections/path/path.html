@@ -1,0 +1,37 @@
+<section id="camino" class="bg-surface-soft scroll-mt-24 py-12 md:py-[var(--space-9)]" aria-labelledby="path-title">
+  <div class="page-x flex flex-col gap-8">
+    <div class="grid items-end gap-4 md:grid-cols-2">
+      <h2 id="path-title" class="text-fluid-lg m-0">{{ path().title }}</h2>
+      <p class="text-ink-muted text-lead m-0">{{ path().summary }}</p>
+    </div>
+    <ol #list class="m-0 grid list-none grid-cols-1 gap-[var(--space-5)] p-0 lg:grid-cols-4">
+      @for (stage of path().stages; track stage.title; let i = $index; let last = $last) {
+        <li [appReveal]="i" class="relative flex flex-col pl-10 lg:pt-10 lg:pl-0">
+          <!-- Decorative reading progress (no check mark: the status badge carries the real state). -->
+          <span class="ec-tl-node" [class.on]="reached() > i" aria-hidden="true"></span>
+          @if (!last) {
+            <span class="ec-tl-seg" [class.on]="reached() > i + 1" aria-hidden="true"></span>
+          }
+          <div class="bg-surface border-line shadow-eco-card flex flex-1 flex-col gap-3 overflow-hidden rounded-lg border pb-5 sm:max-w-[40rem] lg:max-w-none">
+            @if (showPhoto(stage) && stage.photo; as photo) {
+              <app-image-slot [label]="photo.alt" [src]="photo.src ?? ''" tone="deep" minHeight="8.75rem" />
+            }
+            <div class="flex flex-1 flex-col items-start gap-3 px-5">
+              <div class="flex w-full items-center justify-between">
+                <span class="text-ink-muted text-[length:var(--small-size)] font-semibold" aria-hidden="true">0{{ i + 1 }}</span>
+                @if (stage.icon) {
+                  <span class="bg-primary-tint text-primary-deep grid size-10 place-items-center rounded-full">
+                    <app-icon [name]="stage.icon" />
+                  </span>
+                }
+              </div>
+              <h3 class="text-title m-0">{{ stage.title }}</h3>
+              <p class="m-0 text-[length:var(--small-size)]">{{ stage.text }}</p>
+              <div class="mt-auto"><app-status-badge [status]="stage.status" /></div>
+            </div>
+          </div>
+        </li>
+      }
+    </ol>
+  </div>
+</section>
