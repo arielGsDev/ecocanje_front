@@ -46,13 +46,6 @@
                 }
               </ul>
             }
-            <div class="mt-auto pt-2">
-              @if (activity.signupOpen) {
-                <a pButton [routerLink]="['/eventos', event().id, 'inscripcion']" class="btn-eco">Inscribirme</a>
-              } @else {
-                <button pButton type="button" disabled class="btn-eco">Inscripción aún no disponible</button>
-              }
-            </div>
           </div>
         </li>
       }

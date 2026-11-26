@@ -1,21 +1,21 @@
 <section id="equipo" class="bg-surface-soft scroll-mt-24 py-12 md:py-[var(--space-9)]" aria-labelledby="team-title">
-  <div class="page-x grid items-center gap-8 md:grid-cols-2 md:gap-12">
-    <div class="flex flex-col gap-4">
+  <div class="page-x grid items-center gap-8 md:gap-12" [class.md:grid-cols-2]="!!team().photo?.src">
+    <div class="flex max-w-[52rem] flex-col gap-4">
       <h2 id="team-title" class="text-fluid-lg m-0">{{ team().title }}</h2>
       @for (paragraph of team().paragraphs; track paragraph) {
         <p class="m-0">{{ paragraph }}</p>
       }
-      @if (team().logo) {
-        <div class="flex flex-wrap items-center gap-4">
-          <div class="w-[11.25rem]"><app-image-slot [label]="team().logo ?? ''" minHeight="7.5rem" /></div>
+      @if (team().logo?.src; as logoSrc) {
+        <div class="flex flex-wrap items-center gap-4 pt-2">
+          <img [src]="logoSrc" [alt]="team().logo?.alt ?? ''" class="h-16 w-auto" loading="lazy" decoding="async" />
           @if (team().role) {
             <strong class="text-primary-deep">{{ team().role }}</strong>
           }
         </div>
       }
     </div>
-    @if (team().photo) {
-      <app-image-slot [label]="team().photo?.alt ?? ''" [src]="team().photo?.src ?? ''" minHeight="25rem" />
+    @if (team().photo?.src; as photoSrc) {
+      <app-image-slot [label]="team().photo?.alt ?? ''" [src]="photoSrc" minHeight="25rem" />
     }
   </div>
 </section>

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { EventsService } from '../../core/data/events.service';
 import { Activities } from './sections/activities/activities';
 import { Community } from './sections/community/community';
@@ -19,8 +19,4 @@ import { Team } from './sections/team/team';
 })
 export class HomePage {
   protected readonly event = inject(EventsService).featured;
-
-  protected readonly participateFragment = computed(() =>
-    this.event()?.activities.some((activity) => activity.signupOpen) ? 'actividades' : null,
-  );
 }

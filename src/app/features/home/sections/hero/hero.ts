@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ButtonDirective } from 'primeng/button';
 import { HERO } from '../../../../core/data/site.content';
@@ -13,5 +13,4 @@ import { Reveal } from '../../../../shared/ui/reveal';
 })
 export class Hero {
   protected readonly hero = HERO;
-  readonly participateFragment = input<string | null>(null);
 }

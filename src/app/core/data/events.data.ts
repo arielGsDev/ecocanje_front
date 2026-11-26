@@ -1,14 +1,13 @@
 import { EventInfo } from './event.model';
 
 /**
- * Demo data taken from the prototype. It lives only here: components, styles and animations
- * never reference it. Replace with API calls in EventsService; the views do not change.
+ * Published events. Components, styles and animations never reference a specific event.
+ * Replace with API calls in EventsService; the views do not change.
  */
-export const SAMPLE_EVENTS: EventInfo[] = [
+export const EVENTS: EventInfo[] = [
   {
     id: 'nueva-aurora',
     featured: true,
-    sample: true,
     name: 'EcoCanje en Nueva Aurora',
     place: 'Nueva Aurora, Guamaní, Quito',
     status: 'live',
@@ -35,7 +34,6 @@ export const SAMPLE_EVENTS: EventInfo[] = [
         src: 'images/spring-reeds.jpg',
         alt: 'Juncos y plantas acuáticas en la vertiente, con los muros del parque al fondo.',
       },
-      note: 'El entorno de la vertiente. Si se dispone de una fotografía de julio de 2025, va aquí con su fecha y contexto.',
     },
     path: {
       title: 'Un camino que construimos en comunidad.',
@@ -46,7 +44,6 @@ export const SAMPLE_EVENTS: EventInfo[] = [
           title: 'Aprendemos juntos',
           icon: 'community',
           startsOn: '2026-11-28',
-          photo: { alt: 'Foto del taller' },
           status: 'live',
           text: 'Nos encontramos en un taller para conversar sobre reciclaje, cuidado del parque y conservación de la vertiente.',
         },
@@ -63,7 +60,6 @@ export const SAMPLE_EVENTS: EventInfo[] = [
         {
           title: 'Activamos el EcoCanje',
           icon: 'recycle',
-          photo: { alt: 'Foto de reciclables' },
           status: 'prep',
           text: 'Organizamos jornadas para entregar materiales reciclables y recibir incentivos ecológicos, según las condiciones de cada jornada.',
         },
@@ -93,13 +89,11 @@ export const SAMPLE_EVENTS: EventInfo[] = [
         chip: 'Actividad 1',
         title: 'Taller comunitario',
         status: 'live',
-        signupOpen: true,
         text: 'Nuestro primer encuentro para aprender sobre reciclaje y conversar sobre el cuidado del parque y la vertiente.',
         date: '28 de noviembre de 2026',
         startsOn: '2026-11-28',
         time: '14:30 a 16:00',
         place: 'Casa Somos del parque Nueva Aurora',
-        photo: { alt: 'Foto del taller (se suma después de realizarlo)' },
       },
       {
         id: 'minga',
@@ -118,7 +112,6 @@ export const SAMPLE_EVENTS: EventInfo[] = [
         title: 'Jornadas de EcoCanje',
         status: 'prep',
         text: 'Prepárate para separar tus reciclables y participar en las próximas jornadas de intercambio.',
-        photo: { alt: 'Foto de materiales reciclables' },
       },
     ],
     sessionsNotice: {
@@ -131,9 +124,8 @@ export const SAMPLE_EVENTS: EventInfo[] = [
         'EcoCanje es una iniciativa impulsada por un equipo juvenil e implementada por la Fundación Coalición Ecuatoriana de Personas que Viven con VIH/Sida (CEPVVS), junto a la participación de vecinos y actores del sector.',
         'Creemos en lo que podemos construir cuando compartimos nuestros conocimientos, nuestro tiempo y las ganas de cuidar el barrio.',
       ],
-      logo: 'Logo oficial de la Fundación CEPVVS',
+      logo: { src: 'images/CEPVVS_logo_transparente.png', alt: 'Logo de la Fundación CEPVVS: Juntos y organizados por nuestros derechos' },
       role: 'Organización implementadora',
-      photo: { alt: 'Fotografía real del equipo' },
     },
     community: {
       status: 'soon',
@@ -142,6 +134,5 @@ export const SAMPLE_EVENTS: EventInfo[] = [
     },
     supportText:
       'Este proyecto es posible gracias al apoyo del Municipio de Quito, a través del Fondo Ambiental, en el marco del Youth Climate Action Fund, un proyecto patrocinado por Rockefeller Philanthropy Advisors.',
-    supportLogos: 'Logos de Youth Climate Action Fund, Bloomberg Philanthropies y Alcaldía Metropolitana de Quito',
   },
 ];
