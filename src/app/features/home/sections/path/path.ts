@@ -17,7 +17,7 @@ export class Path {
 
   /** A stage shows its photo (or the slot waiting for it) only after it has taken place. */
   protected showPhoto(stage: Stage): boolean {
-    return !!stage.photo && hasTakenPlace(stage);
+    return !!stage.photo?.src && hasTakenPlace(stage);
   }
 
   /** How many stages the reader has reached. Once reached, a stage stays reached. */

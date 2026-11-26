@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { SAMPLE_EVENTS } from '../../../../core/data/sample-events';
+import { EVENTS } from '../../../../core/data/events.data';
 
 import { Story } from './story';
 
@@ -13,7 +13,7 @@ describe('Story', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(Story);
-    fixture.componentRef.setInput('story', SAMPLE_EVENTS[0].story!);
+    fixture.componentRef.setInput('story', EVENTS[0].story!);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

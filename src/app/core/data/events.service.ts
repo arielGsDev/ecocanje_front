@@ -1,14 +1,14 @@
 import { Injectable, computed, signal } from '@angular/core';
 import { EventInfo } from './event.model';
-import { SAMPLE_EVENTS } from './sample-events';
+import { EVENTS } from './events.data';
 
 /**
- * Events source. Today it serves demo data; it will be replaced by API calls (HttpClient)
+ * Events source. Today it serves the published events from a local file; it will be replaced by API calls (HttpClient)
  * without touching the views. The app must keep working with an empty list.
  */
 @Injectable({ providedIn: 'root' })
 export class EventsService {
-  private readonly _events = signal<EventInfo[]>(SAMPLE_EVENTS);
+  private readonly _events = signal<EventInfo[]>(EVENTS);
   private readonly _state = signal<'loading' | 'ready' | 'error'>('ready');
 
   readonly events = this._events.asReadonly();

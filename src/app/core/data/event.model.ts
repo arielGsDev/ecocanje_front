@@ -1,7 +1,7 @@
 /** Content model. Views know no specific event: everything arrives as data. */
 export type Status = 'live' | 'soon' | 'prep' | 'done' | 'ongoing';
 
-/** A photo. Without src the UI shows a placeholder that says what photo belongs here. */
+/** A photo. Without src nothing is rendered: there are no placeholders in production. */
 export interface Photo {
   alt: string;
   src?: string;
@@ -14,7 +14,6 @@ export interface Activity {
   status: Status;
   /** Short label above the title, for example "Actividad 1". */
   chip?: string;
-  signupOpen?: boolean;
   /** Display date, for example "28 de noviembre de 2026". */
   date?: string;
   /** First day as an ISO date. Photos appear only once this day has arrived. */
@@ -44,7 +43,8 @@ export interface Story {
   paragraphs: string[];
   quote: string;
   photo: Photo;
-  note: string;
+  /** Optional caption under the photo. */
+  note?: string;
 }
 
 export interface Path {
@@ -61,7 +61,7 @@ export interface ActivitiesIntro {
 export interface TeamInfo {
   title: string;
   paragraphs: string[];
-  logo?: string;
+  logo?: Photo;
   role?: string;
   photo?: Photo;
 }
@@ -78,8 +78,6 @@ export interface EventInfo {
   place: string;
   status: Status;
   featured?: boolean;
-  /** Marks demo data so the UI can label it. */
-  sample?: boolean;
   headline: string;
   summary: string;
   photo?: Photo;
@@ -92,5 +90,5 @@ export interface EventInfo {
   team?: TeamInfo;
   community?: CommunityInfo;
   supportText?: string;
-  supportLogos?: string;
+  supportLogos?: Photo;
 }

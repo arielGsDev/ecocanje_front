@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
-import { SAMPLE_EVENTS } from '../../../../core/data/sample-events';
+import { EVENTS } from '../../../../core/data/events.data';
 
 import { Activities } from './activities';
 
@@ -15,7 +15,7 @@ describe('Activities', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(Activities);
-    fixture.componentRef.setInput('event', SAMPLE_EVENTS[0]);
+    fixture.componentRef.setInput('event', EVENTS[0]);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

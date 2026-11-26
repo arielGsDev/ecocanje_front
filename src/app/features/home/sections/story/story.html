@@ -2,10 +2,12 @@
   <div class="page-x grid items-center gap-8 md:grid-cols-2 md:gap-12">
     <figure class="m-0 flex flex-col gap-3">
       <app-image-slot [label]="story().photo.alt" [src]="story().photo.src ?? ''" minHeight="28.75rem" />
-      <figcaption class="text-ink-muted flex items-start gap-2 text-[length:var(--small-size)]">
+      @if (story().note) {
+        <figcaption class="text-ink-muted flex items-start gap-2 text-[length:var(--small-size)]">
         <app-icon name="calendar" [size]="18" />
         <span>{{ story().note }}</span>
       </figcaption>
+      }
     </figure>
     <div class="flex flex-col gap-4">
       <h2 id="story-title" class="text-fluid-lg m-0">{{ story().title }}</h2>
