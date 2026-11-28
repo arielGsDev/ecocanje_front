@@ -50,6 +50,13 @@
         </li>
       }
     </ul>
+    @if (event().signupUrl; as signupUrl) {
+      <a pButton [href]="signupUrl" target="_blank" rel="noopener" class="btn-eco w-full justify-center">
+        Inscribirme
+        <app-icon name="external" [size]="18" />
+        <span class="sr-only">(se abre en una pestaña nueva)</span>
+      </a>
+    }
     @if (event().sessionsNotice; as notice) {
       <div class="border-line bg-surface flex flex-wrap items-center gap-3 rounded-md border p-5">
         <app-status-badge [status]="notice.status" />

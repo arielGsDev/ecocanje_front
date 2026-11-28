@@ -64,8 +64,8 @@ export const FOOTER: { tagline: string; signature: string; groups: FooterGroup[]
     {
       title: 'Redes sociales',
       links: [
-        { label: 'Instagram: @fundacion.cepvvs', url: 'https://www.instagram.com/fundacion.cepvvs/' },
-        { label: 'TikTok: @fundacion.cepvvs', url: 'https://www.tiktok.com/@fundacion.cepvvs' },
+        { label: 'Instagram: @fundacion_cepvvs', url: 'https://www.instagram.com/fundacion_cepvvs' },
+        { label: 'TikTok: @fundacion_cepvvs', url: 'https://www.tiktok.com/@fundacion_cepvvs' },
       ],
     },
     {

@@ -80,9 +80,10 @@ export const EVENTS: EventInfo[] = [
       notice: {
         title: 'Pronto compartiremos las fechas, los materiales aceptados y las condiciones de cada jornada.',
         linkLabel: 'Sigue las novedades en Instagram',
-        url: 'https://www.instagram.com/fundacion.cepvvs/',
+        url: 'https://www.instagram.com/fundacion_cepvvs',
       },
     },
+    signupUrl: 'https://forms.gle/pG1a7PzbRRTEGj1J9',
     activities: [
       {
         id: 'workshop',
@@ -134,5 +135,9 @@ export const EVENTS: EventInfo[] = [
     },
     supportText:
       'Este proyecto es posible gracias al apoyo del Municipio de Quito, a través del Fondo Ambiental, en el marco del Youth Climate Action Fund, un proyecto patrocinado por Rockefeller Philanthropy Advisors.',
+    supportLogos: {
+      src: 'images/Rockefeller_logo.PNG',
+      alt: 'Logos de Youth Climate Action Fund, Bloomberg Philanthropies y Alcaldía Metropolitana de Quito',
+    },
   },
 ];

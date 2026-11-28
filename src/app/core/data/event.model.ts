@@ -86,6 +86,8 @@ export interface EventInfo {
   path?: Path;
   activitiesIntro?: ActivitiesIntro;
   activities: Activity[];
+  /** External sign-up form. The sign-up button appears only when this is set. */
+  signupUrl?: string;
   sessionsNotice?: { status: Status; text: string };
   team?: TeamInfo;
   community?: CommunityInfo;
