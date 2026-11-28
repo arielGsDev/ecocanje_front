@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ButtonDirective } from 'primeng/button';
 import { Activity, EventInfo } from '../../../../core/data/event.model';
 import { hasTakenPlace } from '../../../../core/data/event.rules';
 import { Icon } from '../../../../shared/ui/icon/icon';
@@ -8,7 +9,7 @@ import { StatusBadge } from '../../../../shared/ui/status-badge/status-badge';
 
 @Component({
   selector: 'app-activities',
-  imports: [Icon, ImageSlot, Reveal, StatusBadge],
+  imports: [ButtonDirective, Icon, ImageSlot, Reveal, StatusBadge],
   templateUrl: './activities.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

@@ -20,6 +20,6 @@
     <app-community [community]="community" />
   }
   @if (event.supportText; as text) {
-    <app-support [text]="text" />
+    <app-support [text]="text" [logos]="event.supportLogos" />
   }
 }
