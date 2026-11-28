@@ -11,6 +11,7 @@ export const EVENTS: EventInfo[] = [
     name: 'EcoCanje en Nueva Aurora',
     place: 'Nueva Aurora, Guamaní, Quito',
     status: 'live',
+    logo: { src: 'images/ecocanje-nueva-aurora-logo.png', alt: 'EcoCanje Nueva Aurora' },
     headline: 'Nos dio agua. Ahora nos toca cuidarla.',
     summary:
       'En julio de 2025, esta vertiente ayudó al barrio cuando faltó el agua. Hoy nos reunimos para cuidar su entorno, aprender y darle una nueva oportunidad a nuestros residuos.',
