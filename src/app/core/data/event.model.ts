@@ -78,6 +78,8 @@ export interface EventInfo {
   place: string;
   status: Status;
   featured?: boolean;
+  /** Logo of the event, for example the place variant of the brand. */
+  logo?: Photo;
   headline: string;
   summary: string;
   photo?: Photo;

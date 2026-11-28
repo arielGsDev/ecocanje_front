@@ -1,4 +1,4 @@
-/* Brand pieces ported from the design system bundle (illustrations, status chip, wordmark, image slot). */
+/* Brand pieces ported from the design system bundle (illustrations, status chip, image slot). */
 .ec-icon { display: inline-block; flex: none; vertical-align: middle; }
 .ec-status { display: inline-flex; align-items: center; gap: var(--space-2); height: 1.75rem; padding: 0 0.75rem 0 0.625rem; border-radius: var(--radius-pill); font-size: 0.8125rem; line-height: 1rem; font-weight: 600; white-space: nowrap; }
 .ec-status .dot { width: 0.5rem; height: 0.5rem; border-radius: 50%; flex: none; }
@@ -13,11 +13,6 @@
 .ec-status-ongoing .dot { background: var(--neutral-dot); }
 @keyframes ec-pulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 75%, transparent); } 80%,100% { box-shadow: 0 0 0 7px color-mix(in srgb, var(--accent) 0%, transparent); } }
 @media (prefers-reduced-motion: reduce) { .ec-status-live .dot { animation: none; } }
-.ec-wordmark { display: inline-flex; flex-direction: column; line-height: 1; color: var(--primary-deep); text-decoration: none; }
-.ec-wordmark b { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.025rem; }
-.ec-wordmark b i { font-style: normal; color: var(--primary); }
-.ec-wordmark.on-dark { color: var(--on-primary); }
-.ec-wordmark.on-dark b i { color: var(--accent); }
 .ec-slot { position: relative; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: var(--space-2); background: var(--surface-muted); border-radius: var(--radius-lg); color: var(--ink-muted); text-align: center; overflow: hidden; font-size: 0.8125rem; line-height: 1.125rem; font-weight: 600; padding: var(--space-4); box-sizing: border-box; background-image: repeating-linear-gradient(135deg, color-mix(in srgb, var(--primary-deep) 5%, transparent) 0 0.75rem, transparent 0.75rem 1.5rem); }
 .ec-slot::after { content: ""; position: absolute; inset: 0.625rem; border: 1.5px dashed color-mix(in srgb, var(--primary-deep) 24%, transparent); border-radius: calc(var(--radius-lg) - 0.5rem); pointer-events: none; }
 .ec-slot .ec-icon { color: var(--primary); opacity: .7; }
